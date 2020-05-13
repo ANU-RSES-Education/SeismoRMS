@@ -1,5 +1,15 @@
-*.mseed
-*.npz
-*.*.*.*.pdf
+data/*.mseed
+/*.mseed 
+/*.npz
+
+# *.*.*.*.pdf
 *.*.*.*.png
+*.*.*.*.csv
 .ipynb_checkpoints
+
+__pycache__
+
+*checkpoint*
+*autogen*
+
+/scripts/*.py
