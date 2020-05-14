@@ -46,11 +46,18 @@ jobs:
         name: logs
         path: output_log.txt
 
-    - name: Upload the pdf files (for now just an artefact)
+    - name: Upload the pdf files 
       uses: actions/upload-artifact@v1
       with:
         name: figures
         path: scripts
+      
+
+    # - name: Push back to the repository
+    #   uses: actions/upload-artifact@v1
+    #   with:
+    #     name: figures
+    #     path: scripts
       
 
 
