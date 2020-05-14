@@ -35,7 +35,7 @@ jobs:
       shell: bash -l {0}
       run: |
         conda activate base 
-        ln -s seismosocialdistancing_core.py scripts/seismosocialdistancing_core.py
+        ln -s python/seismosocialdistancing_core.py scripts/seismosocialdistancing_core.py
         ./notebook_runner.sh
 
     - name: Upload the files (for now just an artefact)
