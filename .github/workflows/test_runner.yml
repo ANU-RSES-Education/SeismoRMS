@@ -35,6 +35,12 @@ jobs:
       run: |
         ./notebook_runner.sh
 
-    -
+    - name: Upload the files (for now just an artefact)
+      uses: actions/upload-artifact@v1
+      with:
+        name: files
+        path: scripts/*.pdf
+
+    
 
       
