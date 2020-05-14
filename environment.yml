@@ -6,3 +6,4 @@ dependencies:
   - obspy >=1.2.0
   - pandas
   - tqdm
+  - pip 
