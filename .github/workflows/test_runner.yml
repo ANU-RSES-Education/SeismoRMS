@@ -30,23 +30,20 @@ jobs:
       run: |
         conda env update -n base --file environment.yml
         conda activate base 
+        pip install tables
 
     - name: Run the code
       shell: bash -l {0}
       run: |
         conda activate base 
         cp python/seismosocialdistancing_core.py scripts/seismosocialdistancing_core.py
-        cp python/seismosocialdistancing_core.py seismosocialdistancing_core.py
-        ls -l scripts
-        ls -l python
-        head scripts/seismosocialdistancing_core.py
-        ./notebook_runner.sh
+        ./notebook_runner.sh &> output_log.txt
 
     - name: Upload the files (for now just an artefact)
       uses: actions/upload-artifact@v1
       with:
         name: files
-        path: scripts/*.pdf
+        path: [scripts/*.pdf, output_log.txt]
 
     
 
