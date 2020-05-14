@@ -28,6 +28,7 @@ jobs:
     - name: Install dependencies with conda # (the shell line is needed for conda paths etc)
       shell: bash -l {0}
       run: |
+        cat conda_packages.yml
         conda env update -n base --file conda_packages.yml
 
     - name: Run the code
