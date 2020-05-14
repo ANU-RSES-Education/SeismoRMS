@@ -36,6 +36,7 @@ jobs:
       run: |
         conda activate base 
         ln -s python/seismosocialdistancing_core.py scripts/seismosocialdistancing_core.py
+        ln -s python/seismosocialdistancing_core.py seismosocialdistancing_core.py
         ls -l scripts
         ls -l python
         ./notebook_runner.sh
