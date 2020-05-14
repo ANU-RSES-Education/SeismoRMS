@@ -50,16 +50,25 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: figures
-        path: scripts
+        path: results
       
-
     # - name: Push back to the repository
     #   uses: actions/upload-artifact@v1
     #   with:
     #     name: figures
     #     path: scripts
       
+    - name: Commit files 
+        run: |
+          git config --local user.email "diablo@underworldcode.org"
+          git config --local user.name "ProfessorDiablobot"
+          git add results/*.pdf
+          git commit -m "Most recent results" 
 
+    - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
     
 
