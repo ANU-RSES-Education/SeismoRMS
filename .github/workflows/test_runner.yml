@@ -29,6 +29,7 @@ jobs:
       shell: bash -l {0}
       run: |
         conda env update -n base --file environment.yml
+        conda activate base 
         which jupyter
         which jupyter-nbconvert
         which ipython
