@@ -42,8 +42,15 @@ jobs:
     - name: Upload the files (for now just an artefact)
       uses: actions/upload-artifact@v1
       with:
-        name: files
+        name: logs
         path: output_log.txt
+
+    - name: Upload the files (for now just an artefact)
+      uses: actions/upload-artifact@v1
+      with:
+        name: figures
+        path: scripts/*.pdf
+        
 
     
 
