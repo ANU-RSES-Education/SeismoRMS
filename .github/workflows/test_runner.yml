@@ -29,10 +29,14 @@ jobs:
       shell: bash -l {0}
       run: |
         conda env update -n base --file environment.yml
+        which jupyter
+        which jupyter-nbconvert
+        which ipython
 
     - name: Run the code
       shell: bash -l {0}
       run: |
+        
         ./notebook_runner.sh
 
     - name: Upload the files (for now just an artefact)
