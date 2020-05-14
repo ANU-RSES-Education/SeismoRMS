@@ -59,16 +59,16 @@ jobs:
     #     path: scripts
       
     - name: Commit files 
-        run: |
-          git config --local user.email "diablo@underworldcode.org"
-          git config --local user.name "ProfessorDiablobot"
-          git add results/*.pdf
-          git commit -m "Most recent results" 
+      run: |
+        git config --local user.email "diablo@underworldcode.org"
+        git config --local user.name "ProfessorDiablobot"
+        git add results/*.pdf
+        git commit -m "Most recent results" 
 
     - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
 
     
 
