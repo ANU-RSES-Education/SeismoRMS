@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-jupyter nbconvert --to script notebooks/*.ipynb --output-dir=scripts
+jupyter nbconvert --to script notebooks/SeismoSocialDistancing.ipynb --output-dir=scripts
 
 cd scripts
-ipython SeismoSocialDistancing.ipynb --matplotlib inline
+ipython SeismoSocialDistancing.py --matplotlib inline
