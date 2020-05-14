@@ -38,19 +38,21 @@ jobs:
         conda activate base 
         cp python/seismosocialdistancing_core.py scripts/seismosocialdistancing_core.py
         ./notebook_runner.sh &> output_log.txt
+        ls -l scripts 
 
-    - name: Upload the files (for now just an artefact)
+    - name: Upload the log files (for now just an artefact)
       uses: actions/upload-artifact@v1
       with:
         name: logs
         path: output_log.txt
 
-    - name: Upload the files (for now just an artefact)
+    - name: Upload the pdf files (for now just an artefact)
       uses: actions/upload-artifact@v1
       with:
         name: figures
         path: scripts/*.pdf
-        
+      
+
 
     
 
