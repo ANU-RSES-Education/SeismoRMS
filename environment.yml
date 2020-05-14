@@ -8,3 +8,5 @@ dependencies:
   - tqdm
   - pip 
   - jupyter
+  - nbconvert
+  - ipython 
