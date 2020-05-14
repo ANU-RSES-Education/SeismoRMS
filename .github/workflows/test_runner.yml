@@ -18,20 +18,22 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-      
+  
     - uses: goanpeca/setup-miniconda@v1
         with:
           auto-update-conda: true
           python-version: 3.7
 
-      - name: Install dependencies with conda # (the shell line is needed for conda paths etc)
-        shell: bash -l {0}
-        run: |
-          conda env update -n base --file conda_packages.yml
+    - name: Install dependencies with conda # (the shell line is needed for conda paths etc)
+      shell: bash -l {0}
+      run: |
+        conda env update -n base --file conda_packages.yml
 
-      - name: Run the code
-        shell: bash -l {0}
-        run: |
-          ./notebook_runner.sh
+    - name: Run the code
+      shell: bash -l {0}
+      run: |
+        ./notebook_runner.sh
+
+    -
 
       
