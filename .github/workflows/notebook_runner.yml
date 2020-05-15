@@ -2,10 +2,11 @@ name: run notebooks
 
 # push or on schedule
 on:
-  push 
 
   schedule: 
     - cron:  '0 1 * * *'  # Every day at 1am 
+
+  push: 
     
 jobs:
   # This workflow contains a single job called "build"
