@@ -2,7 +2,8 @@ name: run notebooks
 
 # push or on schedule
 on:
-  push:
+  push 
+
   schedule: 
     - cron:  '0 1 * * *'  # Every day at 1am 
     
