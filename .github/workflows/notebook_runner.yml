@@ -5,9 +5,7 @@ on:
   push:
   schedule: 
     - cron:  '0 1 * * *'  # Every day at 1am 
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-
+    
 jobs:
   # This workflow contains a single job called "build"
   compute:
@@ -38,7 +36,7 @@ jobs:
         conda activate base 
         cp python/seismosocialdistancing_core.py workdir/seismosocialdistancing_core.py
         ./notebook_runner.sh &> output_log.txt
-        ls -l scripts 
+        ls -l workdir  # add this to the logs for debugging / monitoring 
 
     - name: Upload the log files (for now just an artefact)
       uses: actions/upload-artifact@v1
