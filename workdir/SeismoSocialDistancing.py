@@ -20,7 +20,7 @@
 
 # ## Step 1: imports
 
-# In[5]:
+# In[2]:
 
 
 import datetime
@@ -51,13 +51,21 @@ import seismosocialdistancing_core as seismosocialdistancing
 # 
 # You'll have to make sure the seed_id you request is indeed available from the ``data_provider``
 
-# In[ ]:
+# In[3]:
 
 
 # Make sure you take at least a full week (>=7 days) before the first "ban"
-start = UTCDateTime("2019-12-15")
+start = UTCDateTime("2019-12-25")
 # Leaving UTCDateTime() empty means "now":
 end = UTCDateTime()
+
+# This is the time it takes to be sure the data that we download is a complete record that
+# we can reliably cache in the archive
+safety_window = pd.Timedelta('2 days')
+
+# This is the current date in pandas format
+today = pd.to_datetime(UTCDateTime.now().date)
+
 
 network = "AU"
 station = "SYDS"#,sydney,brisbane jump, adelaide," # Urban stations
@@ -82,11 +90,10 @@ datelist = pd.date_range(start.datetime, min(end, UTCDateTime()).datetime, freq=
 # 
 # The request gets the target day +- 30 minutes to avoid having gaps at the end of each day (need 1 window covering midnight).
 
-# In[ ]:
+# In[4]:
 
 
 force_reprocess = False
-todays_date = pd.to_datetime(UTCDateTime.now().date)
 
 import pathlib
 pathlib.Path(os.path.join("..","data")).mkdir(parents=True, exist_ok=True)
@@ -102,7 +109,7 @@ for day in pbar:
     fn  = os.path.join("..","data","{}_{}_{}.mseed".format(dataset, datestr, nslc))
     fnz = os.path.join("..","data","{}_{}_{}.npz".format(dataset, datestr, nslc))
     
-    if day != todays_date and (os.path.isfile(fn) or (os.path.isfile(fnz) and not force_reprocess)):
+    if (today-day > safety_window) and (os.path.isfile(fn) or (os.path.isfile(fnz) and not force_reprocess)):
          continue
     else:
         pbar.set_description("Fetching %s" % fn)
@@ -127,7 +134,6 @@ print(resp)
 # In[ ]:
 
 
-todays_date = pd.to_datetime(UTCDateTime.now().date)
 
 pbar = tqdm.tqdm(datelist)
 for day in pbar:
@@ -139,7 +145,7 @@ for day in pbar:
     stall = read(fn_in, headonly=True)
     for mseedid in list(set([tr.id for tr in stall])):
         fn_out = os.path.join("..","data","{}_{}_{}.npz".format(dataset, datestr, mseedid))
-        if day != todays_date and (os.path.isfile(fn_out) and not force_reprocess):
+        if (today-day > safety_window) and (os.path.isfile(fn_out) and not force_reprocess):
             continue
         st = read(fn_in, sourcename=mseedid)
         st.attach_response(resp)
