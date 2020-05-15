@@ -36,7 +36,7 @@ jobs:
       shell: bash -l {0}
       run: |
         conda activate base 
-        cp python/seismosocialdistancing_core.py scripts/seismosocialdistancing_core.py
+        cp python/seismosocialdistancing_core.py workdir/seismosocialdistancing_core.py
         ./notebook_runner.sh &> output_log.txt
         ls -l scripts 
 
@@ -46,24 +46,18 @@ jobs:
         name: logs
         path: output_log.txt
 
-    - name: Upload the pdf files 
+    - name: Upload the image files 
       uses: actions/upload-artifact@v1
       with:
         name: figures
         path: results
-      
-    # - name: Push back to the repository
-    #   uses: actions/upload-artifact@v1
-    #   with:
-    #     name: figures
-    #     path: scripts
-      
+   
     - name: Commit files 
       run: |
         git config --local user.email "diablo@underworldcode.org"
         git config --local user.name "ProfessorDiablobot"
-        git add results/*.pdf
-        git commit -m "Most recent results" 
+        git add results/*.png
+        git commit -m "Updated results: `date` " 
 
     - name: Push changes
       uses: ad-m/github-push-action@master

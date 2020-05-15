@@ -1,25 +1,32 @@
+<!-- #region -->
 # Ground Motion Displacement RMS vs Time
 
-*an example simple tutorial for getting seismic data, computing the power spectral densities, extracting the RMS and plotting*
 
-Required:
+This repository is a self-updating version of the [seismic social-distancing "monitoring" toolkit](link) of Thomas Lecocq Fred Massin and Claudio Satriano. The notebook software is bundled with some code that triggers github actions to download any new data and update the images in this README file.
 
-- python
-- obspy (and its dependencies)
-- pandas
-- jupyter
-- notebook
-- tqdm
+This example is from the Blah Blah location / AuSIS 
 
-this should be easy to set up in a conda env: ``conda create -c conda-forge -n covid python=3.7 obspy pandas jupyter notebook tqdm``
+If you want to try it, fork the template repository and follow the instructions.
+<!-- #endregion -->
 
-Author: Thomas Lecocq @seismotom, Fred Massin @fmassin
+## Classic plot
 
-Run it interactively on [mybinder.org](https://mybinder.org/v2/gh/ThomasLecocq/SeismoRMS/master)
+![classic](results/latest.png)
+
+## Hourly plot
+
+![hourly](results/latest-hourly.png)
+
+## Gridmap plot
+
+![gridmap](results/latest-gridmap.png)
+
+## Hourmap plot
+
+![hourmap](results/latest-hourmap.png)
 
 
-## Example:
-The following data shows the effect of the Social Distancing measures from the
-Belgian Government (2020-03-16 at midnight, and 2020-03-18 at midday):
 
-![Example image from this code:](example/covid-19_ucc.png)
+```python
+
+```
