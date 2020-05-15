@@ -17,14 +17,18 @@ If you want to try it, fork the template repository and follow the instructions.
 
 ![hourly](results/latest-hourly.png)
 
-## Gridmap plot
 
-![gridmap](results/latest-gridmap.png)
+## Health checker 
 
-## Hourmap plot
+Verify that the daily data is complete and monitor the updates from [this plot](results/latest-gridmap.png). If days are incomplete, try deleting the .npz file that is cached and it will be rebuilt when you run the notebook locally or when the scheduled job re-runs (assuming the data are available on the server).
 
-![hourmap](results/latest-hourmap.png)
+## Tabulated results
 
+The [tabulated output](results/latest.csv) of the run is also available.
+
+## Help
+
+Documentation will be available soon.
 
 
 ```python
