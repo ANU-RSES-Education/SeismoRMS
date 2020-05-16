@@ -756,7 +756,7 @@ def plot(displacement_RMS,
                 plt.axvline(UTCDateTime(ban).datetime,
                             color='r',
                             linewidth=2,
-                            linestyle=['-', '--', '-.', ':'][iban],
+                            linestyle=['-', '--', '-.', ':', '-', '--', '-.', ':', '-', '--', '-.', ':'][iban],
                             path_effects=[pe.withStroke(linewidth=4, foreground="k")],
                             zorder=-9,
                             label='\n'.join(wrapper.wrap(bans[ban])))
