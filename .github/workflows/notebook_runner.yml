@@ -4,7 +4,7 @@ name: run notebooks
 on:
 
   schedule: 
-    - cron:  '0 1 * * *'  # Every day at 1am 
+    - cron:  '0 17 * * *'  # Every day at 5pm UTC - early am AuSIS time 
 
   push: 
     
