@@ -12,4 +12,4 @@ __pycache__
 *checkpoint*
 *autogen*
 
-/scripts/*.py
+/workdir/*.py

@@ -57,6 +57,8 @@ jobs:
         git config --local user.email "diablo@underworldcode.org"
         git config --local user.name "ProfessorDiablobot"
         git add results/*.png
+        git add data/*npz 
+        git add results/*.csv
         git commit -m "Updated results: `date` " 
 
     - name: Push changes
