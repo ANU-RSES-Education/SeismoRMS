@@ -36,7 +36,6 @@ jobs:
       shell: bash -l {0}
       run: |
         conda activate base 
-        cp python/seismosocialdistancing_core.py workdir/seismosocialdistancing_core.py
         ./notebook_runner.sh &> output_log.txt
         ls -l workdir  # add this to the logs for debugging / monitoring 
 
